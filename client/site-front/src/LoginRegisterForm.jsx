@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './LoginRegisterForm.css';
+import './css/LoginRegisterForm.css';
 
 const LoginRegisterForm = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -7,14 +7,17 @@ const LoginRegisterForm = () => {
   return (
     <div className="form-container">
       <div className={`form-box-container ${isLogin ? '' : 'flip-mode'}`}>
+        {/* Login Form */}
         <div className="form-box login">
           <h2>Sign In</h2>
           <form>
             <div className="input-box">
-              <input type="email" placeholder="Email" required />
+              <i className="fas fa-envelope icon"></i>
+              <input type="email" placeholder="Email"  />
             </div>
             <div className="input-box">
-              <input type="password" placeholder="Password" required />
+              <i className="fas fa-lock icon"></i>
+              <input type="password" placeholder="Password"  />
             </div>
             <button type="submit" className="submit-btn">Sign In</button>
           </form>
@@ -24,17 +27,21 @@ const LoginRegisterForm = () => {
           </p>
         </div>
 
+        {/* Register Form */}
         <div className="form-box register">
           <h2>Sign Up</h2>
           <form>
             <div className="input-box">
-              <input type="text" placeholder="Name" required />
+              <i className="fas fa-user icon"></i>
+              <input type="text" placeholder="Name" />
             </div>
             <div className="input-box">
-              <input type="email" placeholder="Email" required />
+              <i className="fas fa-envelope icon"></i>
+              <input type="email" placeholder="Email"  />
             </div>
             <div className="input-box">
-              <input type="password" placeholder="Password" required />
+              <i className="fas fa-lock icon"></i>
+              <input type="password" placeholder="Password"  />
             </div>
             <button type="submit" className="submit-btn">Sign Up</button>
           </form>
