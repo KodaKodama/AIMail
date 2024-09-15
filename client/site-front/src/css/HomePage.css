@@ -1,0 +1,77 @@
+/* HomePage.css */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Adding a cool abstract polygonal background */
+  .services-container {
+    background: url('https://www.transparenttextures.com/patterns/cubes.png'), linear-gradient(135deg, #f0fff0 40%, #006400 100%);
+    background-blend-mode: overlay;
+    text-align: center;
+    padding: 50px 20px;
+    min-height: 100vh;
+  }
+  
+  /* Services title styling */
+  .services-title {
+    font-size: 2.5rem;
+    color: #0a6a0a;
+    margin-bottom: 20px;
+  }
+  
+  .services-description {
+    font-size: 1.2rem;
+    color: #0a6a0a; 
+    margin-bottom: 50px;
+  }
+  
+  /* Service grid */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+  
+  .service-card {
+    background-color: rgba(0, 100, 0, 0.9); /* Dark green with slight transparency */
+    padding: 40px;
+    border-radius: 15px;
+    color: white;
+    text-align: center;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    text-decoration: none;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  }
+  
+  .service-card:hover {
+    transform: translateY(-10px);
+    background-color: rgba(34, 139, 34, 0.9); /* Lighter green with more transparency on hover */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3); /* Enhance shadow on hover */
+  }
+  
+  .service-card i {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #f0fff0; /* Light green icons */
+  }
+  
+  .service-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .service-card p {
+    font-size: 1rem;
+    color: #f0fff0; /* Light green text */
+  }
+  
+  /* Responsive layout */
+  @media (max-width: 768px) {
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
