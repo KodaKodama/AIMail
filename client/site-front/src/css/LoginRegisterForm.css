@@ -89,6 +89,7 @@ input:focus {
 .submit-btn {
   padding: 0.75rem; /* 12px = 0.75rem */
   margin-bottom: 1em;
+  margin-top: 1em;
   width: 100%;
   background-color: #388e3c;
   color: white;
@@ -128,12 +129,38 @@ input:focus {
   pointer-events: none; /* Disable interaction with the icon */
 }
 
+.error {
+  border-color: red;
+  box-shadow: 0 0 0.5rem rgba(255, 0, 0, 0.2);
+}
+
 /* Adjust input padding to account for icons */
 .input-box input {
   padding-left: 2.5rem; /* Extra padding to prevent overlap with the icon */
 }
 
-input:invalid {
+.error, input:invalid {
   border-color: red;
   box-shadow: 0 0 0.5rem rgba(255, 0, 0, 0.2);
+}
+
+/* Cool error text styling */
+.error-text {
+  color: #e74c3c;
+  font-size: 0.9rem;
+  font-weight: bold;
+  background: #ffe6e6;
+  padding: 0.4rem;
+  border-radius: 0.25rem;
+  margin-top: 0.5rem;
+  animation: shake 0.3s ease-in-out;
+}
+
+/* Adding a shake effect to the error text */
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
 }
