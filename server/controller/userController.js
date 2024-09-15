@@ -31,6 +31,24 @@ const userController = {
           }
 },
 
+login: async(req, res) => {
+    try {
+      const { email, password } = req.body;
+      const user = await User.findOne({ email });
+  
+      if (!user || !(await user.isValidPassword(password))) {
+        return res.status(400).json({ message: 'Invalid email or password' });
+      }
+  
+      // Generate JWT and send it
+      const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+      res.cookie('jwt', token, { httpOnly: true, secure: false }); // Set secure to true in production
+      res.status(200).json({ message: 'Logged in successfully' });
+  }catch(err){
+      return res.status(500).json({message: err.message});
+  }
 }
+}
+
 
 module.exports = userController;
