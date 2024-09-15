@@ -14,10 +14,12 @@ const userSchema = new mongooose.Schema({
         },
         message: 'Password must be at least 8 characters long, include an uppercase letter, a lowercase letter, a number, and a special character.'
      },
-     preferences: {
-        topic: { type: String, required: true },
-        subtopics: { type: [String], default: [] }, // Array of strings for subtopics
-      },
+     preferences: [
+        {
+            topic: { type: String, required: true },  // E.g., 'backend', 'frontend'
+            subtopics: { type: [String], default: [] }, // E.g., 'API design', 'React optimization'
+        },
+     ],
 });
 
 userSchema.pre('save', async function (next) {
