@@ -16,7 +16,7 @@ const userSchema = new mongooose.Schema({
      },
      preferences: [
         {
-            topic: { type: String, required: true },  // E.g., 'backend', 'frontend'
+            topic: { type: String },  // E.g., 'backend', 'frontend'
             subtopics: { type: [String], default: [] }, // E.g., 'API design', 'React optimization'
         },
      ],
