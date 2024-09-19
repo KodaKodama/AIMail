@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
+// const API_URL = process.env.API_URL;
 import '../css/LoginRegisterForm.css';
-const API_URL = process.env.API_URL;
 import axios from 'axios';
 
 const LoginRegisterForm = () => {
   const [isLogin, setIsLogin] = useState(true);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [name, setName] = useState('');
   const [passwordError, setPasswordError] = useState('');
   const [message, setMessage] = useState('');
 
@@ -32,7 +33,7 @@ const LoginRegisterForm = () => {
     e.preventDefault();
     
     try {
-      const response = await axios.post(`${API_URL}/user/login`, {
+      const response = await axios.post(`http://localhost:3000/user/login`, {
         email,
         password,
       });
@@ -50,6 +51,42 @@ const LoginRegisterForm = () => {
       }
     }
   };
+
+  const handleSignup = async (e) => {
+    e.preventDefault();
+
+    const userData = {
+        name: name, 
+        email: email, 
+        password: password,
+    };
+
+    try {
+        const response = await fetch(`http://localhost:3000/user/signup`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(userData)
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          setMessage('Signup successful! You can now log in.');
+          console.log('Signup successful:', data);
+          // Redirect to login or another page
+      } else {
+          // Update the message with error details
+          setMessage(`Signup failed: ${data.msg || 'An error occurred'}`);
+          console.error('Signup error:', data);
+      }
+
+    } catch (error) {
+        setMessage('Signup request failed. Please try again.');
+        console.error('Signup request failed:', error);
+    }
+};
 
   return (
     <div className="form-container">
@@ -89,14 +126,22 @@ const LoginRegisterForm = () => {
         {/* Register Form */}
         <div className="form-box register">
           <h2>Sign Up</h2>
-          <form>
+          <form onSubmit={handleSignup}>
             <div className="input-box">
               <i className="fas fa-user icon"></i>
-              <input type="text" placeholder="Name" required />
+              <input type="text" 
+              placeholder="Name" 
+              value={name}
+              onChange={(e) => setName(e.target.value)} 
+              required />
             </div>
             <div className="input-box">
               <i className="fas fa-envelope icon"></i>
-              <input type="email" placeholder="Email" required />
+              <input type="email" 
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)} 
+              required />
             </div>
 
             <div className="input-box">
@@ -113,6 +158,7 @@ const LoginRegisterForm = () => {
             {passwordError && <p className="error-text">{passwordError}</p>}
             <button type="submit" className="submit-btn">Sign Up</button>
           </form>
+          {message && <p>{message}</p>}
           <p>
             Already have an account?
             <span onClick={() => setIsLogin(true)} className="switch-text"> Sign In</span>
