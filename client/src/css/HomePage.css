@@ -1,77 +1,150 @@
-/* HomePage.css */
+a {
+  text-decoration: none;
+  color: inherit;
+}
 
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Arial', sans-serif;
+.home-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  color: #333;
+}
+
+.welcome-section {
+  margin-bottom: 50px;
+  color: white;
+  background: #52b788;
+  padding: 60px 20px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.welcome-title {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.highlight {
+  color: #fff700;
+  font-weight: bold;
+}
+
+.welcome-description {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.welcome-message {
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 15px 35px;
+  background-color: #fff700;
+  color: #2d6a4f;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.primary-btn {
+  background-color: white;
+  color: #2d6a4f;
+}
+
+.cta-button:hover {
+  transform: translateY(-5px);
+  background-color: #2d6a4f;
+  color: white;
+}
+
+.how-it-works-section {
+  padding: 60px 20px;
+  background-color: #f9f9f9;
+  border-radius: 15px;
+  margin-bottom: 50px;
+}
+
+.section-title {
+  font-size: 36px;
+  color: #2d6a4f;
+  margin-bottom: 30px;
+}
+
+.steps-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.step-card {
+  background: white;
+  border-radius: 15px;
+  padding: 40px 20px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease;
+}
+
+.step-card:hover {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+.step-icon {
+  font-size: 40px;
+  color: #52b788;
+  margin-bottom: 20px;
+}
+
+.cta-section {
+  background-color: #52b788;
+  color: white;
+  padding: 60px 20px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.cta-title {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.cta-button.cta-section {
+  background-color: white;
+  color: #2d6a4f;
+}
+
+.cta-section p {
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+h2.cta-title {
+  color: #fff700;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .steps-grid {
+    flex-direction: column;
+    gap: 20px;
   }
-  
-  /* Adding a cool abstract polygonal background */
-  .services-container {
-    background: url('https://www.transparenttextures.com/patterns/cubes.png'), linear-gradient(135deg, #f0fff0 40%, #006400 100%);
-    background-blend-mode: overlay;
-    text-align: center;
-    padding: 50px 20px;
-    min-height: 100vh;
+
+  .step-card {
+    padding: 30px 20px;
   }
-  
-  /* Services title styling */
-  .services-title {
-    font-size: 2.5rem;
-    color: #0a6a0a;
-    margin-bottom: 20px;
+
+  .welcome-title {
+    font-size: 36px;
   }
-  
-  .services-description {
-    font-size: 1.2rem;
-    color: #0a6a0a; 
-    margin-bottom: 50px;
+
+  .cta-title {
+    font-size: 30px;
   }
-  
-  /* Service grid */
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-  }
-  
-  .service-card {
-    background-color: rgba(0, 100, 0, 0.9); /* Dark green with slight transparency */
-    padding: 40px;
-    border-radius: 15px;
-    color: white;
-    text-align: center;
-    transition: transform 0.3s ease, background-color 0.3s ease;
-    text-decoration: none;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-  }
-  
-  .service-card:hover {
-    transform: translateY(-10px);
-    background-color: rgba(34, 139, 34, 0.9); /* Lighter green with more transparency on hover */
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3); /* Enhance shadow on hover */
-  }
-  
-  .service-card i {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    color: #f0fff0; /* Light green icons */
-  }
-  
-  .service-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-  }
-  
-  .service-card p {
-    font-size: 1rem;
-    color: #f0fff0; /* Light green text */
-  }
-  
-  /* Responsive layout */
-  @media (max-width: 768px) {
-    .services-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-  
+}

@@ -1,0 +1,80 @@
+/* Navbar base styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #2d6a4f;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.navbar-logo a {
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.menu-icon {
+    display: none;
+    cursor: pointer;
+    font-size: 2rem;
+    color: white;
+}
+
+/* Navbar links for desktop */
+.navbar-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5625rem;
+}
+
+.navbar-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.125rem;
+    font-weight: 500;
+    padding: 0.625rem 1.25rem;
+    border-radius: 1.25rem;
+    background-color: #2d6a4f;
+    border: 0.125rem solid white;
+    transition: all 0.5s ease;
+}
+
+.navbar-links a:hover {
+    background-color: white;
+    color: #2d6a4f;
+    border-color: #2d6a4f;
+}
+
+/* Add responsive behavior and slide effect */
+@media (max-width: 48rem) { /* 768px */
+    .menu-icon {
+        display: block;
+    }
+
+    .navbar-links {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        width: 100vw;
+        position: fixed;
+        top: 0;
+        right: -100%; /* Off-screen to the left initially */
+        background-color: #2d6a4f;
+        gap: 2rem;
+        z-index: 100;
+        transition: right 0.5s ease-in-out; /* Slide effect */
+    }
+
+    .navbar-links.active {
+        right: 0; /* Slides in from the left */
+    }
+
+    .navbar-logo {
+        z-index: 101;
+    }
+}

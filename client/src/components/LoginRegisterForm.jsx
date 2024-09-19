@@ -37,10 +37,10 @@ const LoginRegisterForm = () => {
             </div>
             <div className="input-box">
               <i className="fas fa-lock icon"></i>
-              <input 
-                type="password" 
-                placeholder="Password" 
-                required 
+              <input
+                type="password"
+                placeholder="Password"
+                required
                 onChange={handlePasswordChange}
                 value={password}
                 className={passwordError ? 'error' : ''}
@@ -49,7 +49,7 @@ const LoginRegisterForm = () => {
             <button type="submit" className="submit-btn">Sign In</button>
           </form>
           <p>
-            Don't have an account? 
+            Don't have an account?
             <span onClick={() => setIsLogin(false)} className="switch-text"> Sign Up</span>
           </p>
         </div>
@@ -66,13 +66,13 @@ const LoginRegisterForm = () => {
               <i className="fas fa-envelope icon"></i>
               <input type="email" placeholder="Email" required />
             </div>
-           
+
             <div className="input-box">
-            <i className="fas fa-lock icon"></i>
-              <input 
-                type="password" 
-                placeholder="Password" 
-                required 
+              <i className="fas fa-lock icon"></i>
+              <input
+                type="password"
+                placeholder="Password"
+                required
                 onChange={handlePasswordChange}
                 value={password}
                 className={passwordError ? 'error' : ''}
@@ -82,7 +82,7 @@ const LoginRegisterForm = () => {
             <button type="submit" className="submit-btn">Sign Up</button>
           </form>
           <p>
-            Already have an account? 
+            Already have an account?
             <span onClick={() => setIsLogin(true)} className="switch-text"> Sign In</span>
           </p>
         </div>

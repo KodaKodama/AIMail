@@ -1,14 +1,13 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './css/index.css';
-import HomePage from './components/HomePage';
-import LoginRegisterForm from './components/LoginRegisterForm';
+import App from './App';  // Assuming you have an App component to handle routes
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+// Create the root and render the App component
+const root = ReactDOM.createRoot(document.getElementById('root'));
+
+root.render(
   <React.StrictMode>
-    <HomePage />
-  </React.StrictMode>,
-    <React.StrictMode>
-    <LoginRegisterForm />
-  </React.StrictMode>,
+    <App />
+  </React.StrictMode>
 );

@@ -3,43 +3,45 @@ import '../css/HomePage.css'; // Import the CSS for styling
 
 const HomePage = () => {
     return (
-        <div className="services-container">
-            <h1 className="services-title">Our Services</h1>
-            <p className="services-description">
-                Explore our wide range of AI-powered services tailored just for you.
-            </p>
-            <div className="services-grid">
-                <a href="/service1" className="service-card">
-                    <i className="fas fa-cog"></i>
-                    <h3>AI Automation</h3>
-                    <p>Streamline your processes with our AI-driven solutions.</p>
-                </a>
-                <a href="/service2" className="service-card">
-                    <i className="fas fa-user"></i>
-                    <h3>Personalized Insights</h3>
-                    <p>Receive insights tailored to your personal needs.</p>
-                </a>
-                <a href="/service3" className="service-card">
-                    <i className="fas fa-map-marker-alt"></i>
-                    <h3>Location Services</h3>
-                    <p>Discover AI-powered location-based services.</p>
-                </a>
-                <a href="/service4" className="service-card">
-                    <i className="fas fa-globe"></i>
-                    <h3>Global Reach</h3>
-                    <p>Our AI solutions span across borders to meet your needs.</p>
-                </a>
-                <a href="/service5" className="service-card">
-                    <i className="fas fa-home"></i>
-                    <h3>Home Automation</h3>
-                    <p>Integrate AI to automate your home systems.</p>
-                </a>
-                <a href="/service6" className="service-card">
-                    <i className="fas fa-lightbulb"></i>
-                    <h3>Innovation Hub</h3>
-                    <p>Explore the latest innovations powered by AI.</p>
-                </a>
-            </div>
+        <div className="home-container">
+            <section className="welcome-section">
+                <h1 className="welcome-title">Welcome to <span className="highlight">AIMail</span></h1>
+                <p className="welcome-description">
+                    Personalized AI-Generated Newsletters, Tailored Just for You!
+                </p>
+                <p className="welcome-message">
+                    At AImail, we’re transforming how you consume content! No more scrolling through endless articles — just select the topics and subtopics you're interested in, and let our AI do the rest. We’ll send you custom-crafted newsletters delivered right to your inbox, every day.
+                </p>
+                <a href="/signup" className="cta-button primary-btn">Get Started with AImail</a>
+            </section>
+
+            <section className="how-it-works-section">
+                <h2 className="section-title">How It Works</h2>
+                <div className="steps-grid">
+                    <a href="/signup"> <div className="step-card">
+                        <i className="fas fa-user-plus step-icon"></i>
+                        <h3>Sign Up</h3>
+                        <p>Create your account in seconds.</p>
+                    </div>
+                    </a>
+                    <div className="step-card">
+                        <i className="fas fa-heart step-icon"></i>
+                        <h3>Choose Your Interests</h3>
+                        <p>Pick your favorite topics like Backend Development, Machine Learning, and more.</p>
+                    </div>
+                    <div className="step-card">
+                        <i className="fas fa-envelope-open-text step-icon"></i>
+                        <h3>Daily AI-Generated Content</h3>
+                        <p>Receive personalized, engaging articles on the latest trends.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section className="cta-section">
+                <h2 className="cta-title">Let AI simplify your reading</h2>
+                <p>Get expert-level content without lifting a finger!</p>
+                <a href="/signup" className="cta-button">Join Now</a>
+            </section>
         </div>
     );
 };

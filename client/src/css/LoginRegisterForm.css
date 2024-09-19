@@ -1,10 +1,9 @@
-/* Container Styling */
+
 .form-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Ensure the container spans the full height */
-  background: linear-gradient(135deg, #4caf50, #81c784); /* A soft gradient */
+  height: 80vh; /* Ensure the container spans the full height */
   font-family: 'Poppins', sans-serif;
   margin: 0; /* Remove any default margin */
   padding: 0;
