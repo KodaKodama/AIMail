@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import '../css/LoginRegisterForm.css';
+const API_URL = process.env.API_URL;
+import axios from 'axios';
 
 const LoginRegisterForm = () => {
   const [isLogin, setIsLogin] = useState(true);
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordError, setPasswordError] = useState('');
+  const [message, setMessage] = useState('');
 
   // Function to validate password with specified requirements
   const validatePassword = (password) => {
@@ -24,16 +28,43 @@ const LoginRegisterForm = () => {
     }
   };
 
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    
+    try {
+      const response = await axios.post(`${API_URL}/user/login`, {
+        email,
+        password,
+      });
+
+      // You can handle the token here if needed
+      const { token } = response.data;
+      localStorage.setItem('token', token);  // Store token locally (or handle as needed)
+
+      setMessage('Login successful!');
+    } catch (error) {
+      if (error.response && error.response.data) {
+        setMessage(error.response.data.message);
+      } else {
+        setMessage('An error occurred');
+      }
+    }
+  };
+
   return (
     <div className="form-container">
       <div className={`form-box-container ${isLogin ? '' : 'flip-mode'}`}>
         {/* Login Form */}
         <div className="form-box login">
           <h2>Sign In</h2>
-          <form>
+          <form onSubmit={handleLogin}>
             <div className="input-box">
               <i className="fas fa-envelope icon"></i>
-              <input type="email" placeholder="Email" required />
+              <input type="email" 
+              placeholder="Email" 
+              value={email}
+              onChange={(e) => setEmail(e.target.value)} 
+              required />
             </div>
             <div className="input-box">
               <i className="fas fa-lock icon"></i>
@@ -48,6 +79,7 @@ const LoginRegisterForm = () => {
             </div>
             <button type="submit" className="submit-btn">Sign In</button>
           </form>
+          {message && <p>{message}</p>}
           <p>
             Don't have an account?
             <span onClick={() => setIsLogin(false)} className="switch-text"> Sign Up</span>
