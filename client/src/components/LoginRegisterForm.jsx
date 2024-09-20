@@ -31,7 +31,7 @@ const LoginRegisterForm = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    
+
     try {
       const response = await axios.post(`http://localhost:3000/user/login`, {
         email,
@@ -56,37 +56,37 @@ const LoginRegisterForm = () => {
     e.preventDefault();
 
     const userData = {
-        name: name, 
-        email: email, 
-        password: password,
+      name: name,
+      email: email,
+      password: password,
     };
 
     try {
-        const response = await fetch(`http://localhost:3000/user/signup`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(userData)
-        });
+      const response = await fetch(`http://localhost:3000/user/signup`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(userData)
+      });
 
-        const data = await response.json();
+      const data = await response.json();
 
-        if (response.ok) {
-          setMessage('Signup successful! You can now log in.');
-          console.log('Signup successful:', data);
-          // Redirect to login or another page
+      if (response.ok) {
+        setMessage('Signup successful! You can now log in.');
+        console.log('Signup successful:', data);
+        // Redirect to login or another page
       } else {
-          // Update the message with error details
-          setMessage(`Signup failed: ${data.msg || 'An error occurred'}`);
-          console.error('Signup error:', data);
+        // Update the message with error details
+        setMessage(`Signup failed: ${data.msg || 'An error occurred'}`);
+        console.error('Signup error:', data);
       }
 
     } catch (error) {
-        setMessage('Signup request failed. Please try again.');
-        console.error('Signup request failed:', error);
+      setMessage('Signup request failed. Please try again.');
+      console.error('Signup request failed:', error);
     }
-};
+  };
 
   return (
     <div className="form-container">
@@ -97,11 +97,11 @@ const LoginRegisterForm = () => {
           <form onSubmit={handleLogin}>
             <div className="input-box">
               <i className="fas fa-envelope icon"></i>
-              <input type="email" 
-              placeholder="Email" 
-              value={email}
-              onChange={(e) => setEmail(e.target.value)} 
-              required />
+              <input type="email"
+                placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required />
             </div>
             <div className="input-box">
               <i className="fas fa-lock icon"></i>
@@ -129,19 +129,19 @@ const LoginRegisterForm = () => {
           <form onSubmit={handleSignup}>
             <div className="input-box">
               <i className="fas fa-user icon"></i>
-              <input type="text" 
-              placeholder="Name" 
-              value={name}
-              onChange={(e) => setName(e.target.value)} 
-              required />
+              <input type="text"
+                placeholder="Name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required />
             </div>
             <div className="input-box">
               <i className="fas fa-envelope icon"></i>
-              <input type="email" 
-              placeholder="Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)} 
-              required />
+              <input type="email"
+                placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required />
             </div>
 
             <div className="input-box">

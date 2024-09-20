@@ -4,7 +4,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
-    background-color: #2d6a4f;
+    background-color: #52b788;
     box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
     position: relative;
 }
@@ -12,7 +12,7 @@
 .navbar-logo a {
     font-size: 1.75rem;
     font-weight: bold;
-    color: #ffffff;
+    color: #fff700;
     text-decoration: none;
 }
 
@@ -37,7 +37,7 @@
     font-weight: 500;
     padding: 0.625rem 1.25rem;
     border-radius: 1.25rem;
-    background-color: #2d6a4f;
+    background-color: #52b788;
     border: 0.125rem solid white;
     transition: all 0.5s ease;
 }

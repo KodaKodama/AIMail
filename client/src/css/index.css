@@ -3,6 +3,17 @@
   margin: 0;
   box-sizing: border-box;
 }
-body {
-  background: #5FB762;
+
+html, body {
+  height: 100%;
+  overflow-x: hidden; /* Prevent horizontal scroll */
 }
+
+body {
+  background: linear-gradient(to bottom, #d5e8d4, #b8dfbb, #9fd3a7, #87c694);
+  min-height: 100vh; /* Ensures body expands to full height */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
