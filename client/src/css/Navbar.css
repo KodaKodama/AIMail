@@ -4,18 +4,32 @@
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
-    background-color: #52b788;
-    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, #52b788, #2d6a4f);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     position: relative;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Change background color on scroll */
+.navbar.scrolled {
+    background: linear-gradient(135deg, #2d6a4f, #52b788);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Navbar logo */
 .navbar-logo a {
     font-size: 1.75rem;
     font-weight: bold;
     color: #fff700;
     text-decoration: none;
+    transition: color 0.3s ease;
 }
 
+.navbar-logo a:hover {
+    color: #ffd700; /* Gold on hover */
+}
+
+/* Menu icon */
 .menu-icon {
     display: none;
     cursor: pointer;
@@ -36,16 +50,19 @@
     font-size: 1.125rem;
     font-weight: 500;
     padding: 0.625rem 1.25rem;
-    border-radius: 1.25rem;
-    background-color: #52b788;
-    border: 0.125rem solid white;
-    transition: all 0.5s ease;
+    border-radius: 25px;
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent */
+    border: 1px solid transparent; /* Border for smooth transition */
+    backdrop-filter: blur(5px); /* Background blur effect */
+    transition: all 0.4s ease; /* Smooth transition */
 }
 
 .navbar-links a:hover {
     background-color: white;
     color: #2d6a4f;
     border-color: #2d6a4f;
+    transform: translateY(-4px); /* Slight lift effect */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow on hover */
 }
 
 /* Add responsive behavior and slide effect */
@@ -63,15 +80,16 @@
         width: 100vw;
         position: fixed;
         top: 0;
-        right: -100%; /* Off-screen to the left initially */
-        background-color: #2d6a4f;
+        right: -100%; /* Off-screen initially */
+        background: rgba(45, 106, 79, 0.95); /* Slightly transparent */
         gap: 2rem;
         z-index: 100;
         transition: right 0.5s ease-in-out; /* Slide effect */
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Shadow for dropdown */
     }
 
     .navbar-links.active {
-        right: 0; /* Slides in from the left */
+        right: 0; /* Slides in */
     }
 
     .navbar-logo {

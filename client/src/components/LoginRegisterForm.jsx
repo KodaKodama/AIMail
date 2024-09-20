@@ -46,8 +46,6 @@ const LoginRegisterForm = () => {
     } catch (error) {
       if (error.response && error.response.data) {
         setMessage(error.response.data.message);
-      } else {
-        setMessage('An error occurred');
       }
     }
   };
