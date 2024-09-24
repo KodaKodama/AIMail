@@ -1,0 +1,94 @@
+  /* Wrapper to center content */
+  .center-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+    /* Full viewport height */
+  }
+
+  /* Preferences container */
+  .preferences-container {
+    max-width: 600px;
+    width: 100%;
+    /* Ensure the container is responsive */
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+  }
+
+  /* Other styles unchanged */
+  .preferences-title {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+  }
+
+  .topics-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  /* Topic styling */
+  .topic-item {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+  }
+
+  .topic-item:hover {
+    transform: translateY(-5px);
+  }
+
+  .topic-title {
+    font-size: 1.5rem;
+    color: #444;
+    cursor: pointer;
+    margin: 0;
+    transition: color 0.3s ease;
+  }
+
+  .topic-title.active {
+    color: #2ecc71;
+  }
+
+  /* Subtopics section with smooth height transition */
+  .subtopics-list {
+    padding-left: 20px;
+    list-style-type: none;
+    height: 0;
+    overflow: hidden;
+    transition: height 0.6s ease, opacity 0.6s ease;
+    opacity: 0;
+  }
+
+  .subtopics-list.open {
+    height: auto;
+    opacity: 1;
+    transition: height 0.6s ease, opacity 0.6s ease;
+  }
+
+  .subtopic-item {
+    font-size: 1.1rem;
+    color: #555;
+    padding: 5px 0;
+    border-left: 2px solid #2ecc71;
+    padding-left: 10px;
+    cursor: pointer;
+    transition: color 0.3s ease, background-color 0.3s ease;
+  }
+
+  .subtopic-item:hover {
+    background-color: #f0f0f0;
+  }
+
+  .subtopic-item.active-subtopic {
+    color: #27ae60;
+    background-color: #e0f7e0;
+  }

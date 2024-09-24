@@ -19,7 +19,7 @@ const Navbar = () => {
             </div>
             <ul className={`navbar-links ${isMenuOpen ? 'active' : ''}`}>
                 <li><Link to="/" onClick={toggleMenu}>Home</Link></li>
-                <li><Link to="/services" onClick={toggleMenu}>Services</Link></li>
+                <li><Link to="/preferences" onClick={toggleMenu}>Preferences</Link></li>
                 <li><Link to="/about" onClick={toggleMenu}>About Us</Link></li>
                 <li><Link to="/login" className="login-btn" onClick={toggleMenu}>Login / Sign Up</Link></li>
             </ul>
