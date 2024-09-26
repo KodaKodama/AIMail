@@ -1,59 +1,25 @@
 import React, { useState, useRef, useEffect } from 'react';
+import axios from 'axios';
 import '../css/Preferences.css';
 
 const Preferences = () => {
-    const topicsData = [
-        {
-            "topic": "frontend",
-            "subtopics": [
-                "React Basics",
-                "CSS Grid and Flexbox",
-                "Responsive Web Design",
-                "JavaScript ES6"
-            ]
-        },
-        {
-            "topic": "backend",
-            "subtopics": [
-                "API Design",
-                "Database Tuning",
-                "Security Best Practices",
-                "Caching Strategies"
-            ]
-        },
-        {
-            "topic": "DevOps",
-            "subtopics": [
-                "CI/CD Pipelines",
-                "Containerization with Docker",
-                "Kubernetes Basics",
-                "Monitoring and Logging"
-            ]
-        },
-        {
-            "topic": "mobile development",
-            "subtopics": [
-                "React Native",
-                "Flutter",
-                "Swift for iOS",
-                "Android Studio Basics"
-            ]
-        },
-        {
-            "topic": "data science",
-            "subtopics": [
-                "Data Cleaning",
-                "Exploratory Data Analysis",
-                "Machine Learning Models",
-                "Data Visualization"
-            ]
-        }
-    ];
-
+    const [topicsData, setTopicsData] = useState([]);
     const [selectedTopic, setSelectedTopic] = useState(null);
     const [selectedSubtopics, setSelectedSubtopics] = useState([]);
     const subtopicsRefs = useRef({});
 
+    useEffect(() => {
+        const fetchTopics = async () => {
+          try {
+            const response = await axios.get('http://localhost:3000/api/topics'); 
+            setTopicsData(response.data); 
+          } catch (error) {
+            console.error('Error fetching topics:', error);
+          }
+        };
+    
+        fetchTopics();
+      }, []);
     useEffect(() => {
         if (selectedTopic) {
             const subtopicsElement = subtopicsRefs.current[selectedTopic];

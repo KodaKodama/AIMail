@@ -21,8 +21,6 @@ app.get('/', (req, res) => {
     res.json({msg: "this is get requestr"})
 })
 
-// Routes
-// console.log('user ');
 
 app.use('/api', topicRouter);
 app.use('/user', userRouter);
