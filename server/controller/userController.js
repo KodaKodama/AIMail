@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 const userController = {
     register: async(req, res) => {
         try {
-            const { name, email, password, preferences } = req.body;
+            const { name, email, password} = req.body;
 
             const existingUser = await User.findOne({ email });
             if (existingUser) return res.status(400).json({msg: "Email already Exists"})
@@ -14,11 +14,11 @@ const userController = {
                 return res.status(400).json({msg: "Name field is empty"})
             }
 
-            if(!preferences){
-              return res.status(400).json({msg: "Select your prefered topic"})
-            }
+            // if(!preferences){
+            //   return res.status(400).json({msg: "Select your prefered topic"})
+            // }
 
-            const newUser = new User({ name, email, password, preferences });
+            const newUser = new User({ name, email, password });
             
             await newUser.save();
             return res.status(201).json({ message: 'User registered successfully' });

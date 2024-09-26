@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 // const API_URL = process.env.API_URL;
 import '../css/LoginRegisterForm.css';
+import { useNavigate } from "react-router-dom";
 import axios from 'axios';
+
 
 const LoginRegisterForm = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -11,6 +13,7 @@ const LoginRegisterForm = () => {
   const [passwordError, setPasswordError] = useState('');
   const [message, setMessage] = useState('');
 
+  const navigate   = useNavigate();
   // Function to validate password with specified requirements
   const validatePassword = (password) => {
     const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
@@ -43,6 +46,9 @@ const LoginRegisterForm = () => {
       localStorage.setItem('token', token);  // Store token locally (or handle as needed)
 
       setMessage('Login successful!');
+
+       // Redirect to preferences page after login
+       navigate("/preferences");
     } catch (error) {
       if (error.response && error.response.data) {
         setMessage(error.response.data.message);
@@ -73,7 +79,8 @@ const LoginRegisterForm = () => {
       if (response.ok) {
         setMessage('Signup successful! You can now log in.');
         console.log('Signup successful:', data);
-        // Redirect to login or another page
+        // Switch to login form after successful signup
+        setIsLogin(true); // This will switch to the login form
       } else {
         // Update the message with error details
         setMessage(`Signup failed: ${data.msg || 'An error occurred'}`);
