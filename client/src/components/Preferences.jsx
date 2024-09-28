@@ -20,6 +20,8 @@ const Preferences = () => {
     
         fetchTopics();
       }, []);
+
+
     useEffect(() => {
         if (selectedTopic) {
             const subtopicsElement = subtopicsRefs.current[selectedTopic];
@@ -46,6 +48,39 @@ const Preferences = () => {
                 : [...prevSelectedSubtopics, subtopic]
         );
     };
+
+     // Function to handle form submission
+     const handleSubmit = async () => {
+        try {
+           
+            const preferences = [];
+    
+            // Add the main topic
+            if (selectedTopic) {
+                preferences.push(selectedTopic); 
+            }
+    
+            // Add each selected subtopic separately
+            selectedSubtopics.forEach(subtopic => {
+                preferences.push(subtopic); 
+            });
+    
+            console.log(preferences);
+    
+            await axios.post('http://localhost:3000/api/preferences', 
+                { preferences }, 
+                {
+                    withCredentials: true,
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                });
+            alert('Preferences saved successfully!');
+        } catch (error) {
+            console.error("Error saving preferences:", error);
+        }
+    };
+
 
     return (
         <div className="center-wrapper">
@@ -80,6 +115,8 @@ const Preferences = () => {
                         </div>
                     ))}
                 </div>
+                {/* Submit Button */}
+                <button onClick={handleSubmit} className="submit-btn">Submit Preferences</button>
             </div>
         </div>
     );

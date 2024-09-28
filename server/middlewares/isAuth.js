@@ -2,10 +2,10 @@ const jwt = require('jsonwebtoken');
 
 // Middleware to verify if a user is authenticated
 const isAuthenticated = (req, res, next) => {
-  // Retrieve the token from cookies or headers
-  const token = req.cookies.jwt || req.headers['authorization'];
+  const token = req.cookies.jwt || req.headers['authorization']?.split(' ')[1];
 
   if (!token) {
+    console.log('auth was not successful');
     return res.status(401).json({ message: 'Authentication token not provided' });
   }
 

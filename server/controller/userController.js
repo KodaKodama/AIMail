@@ -32,8 +32,12 @@ const userController = {
 },
 
 login: async(req, res) => {
+  console.log('inside login');
+  
     try {
+      console.log(req.body);  
       const { email, password } = req.body;
+      console.log(`Email: ${email}, Password: ${password}`);  
       const user = await User.findOne({ email });
   
       if (!user || !(await user.isValidPassword(password))) {
@@ -42,7 +46,7 @@ login: async(req, res) => {
   
       // Generate JWT and send it
       const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
-      res.cookie('jwt', token, { httpOnly: true, secure: false }); // Set secure to true in production
+      res.cookie('jwt', token, { httpOnly: true, secure: process.env.NODE_ENV === 'development', sameSite: 'Strict',}); // Set secure to true in production
       res.status(200).json({ message: 'Logged in successfully' });
   }catch(err){
       return res.status(500).json({message: err.message});

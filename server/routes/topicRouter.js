@@ -1,5 +1,4 @@
 const router = require('express').Router();
-const Topic = require('../models/topics');
 const topicController = require('../controller/topicController');
 const isAuthenticated = require('../middlewares/isAuth')
 

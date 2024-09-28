@@ -39,8 +39,8 @@ const LoginRegisterForm = () => {
       const response = await axios.post(`http://localhost:3000/user/login`, {
         email,
         password,
-      });
-
+      }, { withCredentials: true });
+      console.log(response.data);
       // You can handle the token here if needed
       const { token } = response.data;
       localStorage.setItem('token', token);  // Store token locally (or handle as needed)
