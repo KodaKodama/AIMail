@@ -5,8 +5,8 @@ const db = require('./db/db.js');
 const bodyParser = require('body-parser')
 const userRouter = require('./routes/userRouter.js');
 const topicRouter = require('./routes/topicRouter.js');
+const scheduler = require("./services/scheduler.js");
 const cors = require('cors')
-const Topic = require('./models/topics.js')
 const app = express();
 
 const PORT = process.env.PORT || 3000;
@@ -45,7 +45,7 @@ app.use('/user', userRouter);
 
 app.listen(PORT, () => {
     console.log('serverr is running');
-    
+    scheduler.start();    
 });
 
 

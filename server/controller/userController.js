@@ -2,6 +2,7 @@ const User = require('../models/user')
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
+
 const userController = {
     register: async(req, res) => {
         try {
@@ -51,7 +52,17 @@ login: async(req, res) => {
   }catch(err){
       return res.status(500).json({message: err.message});
   }
-}
+},
+
+  getUsers: async(req, res) => {
+    try{
+      return await User.find();
+    }catch(e){
+      return res.satus(500).json({
+        message: e.message
+      });
+    }
+} 
 }
 
 
