@@ -16,7 +16,7 @@ db();
 // Enable CORS here
 app.use(cors({
     origin: process.env.NODE_ENV === 'production' 
-            ? 'https://your-vercel-domain.vercel.app'  
+            ? 'https://https://ai-mail-fawn.vercel.app'  
             : 'http://localhost:5173',  
     credentials: true,
 }));
