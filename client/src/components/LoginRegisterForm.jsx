@@ -36,7 +36,7 @@ const LoginRegisterForm = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post(`${import.meta.env.API_URL}/user/login`, {
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/user/login`, {
         email,
         password,
       }, { withCredentials: true });
@@ -66,7 +66,7 @@ const LoginRegisterForm = () => {
     };
 
     try {
-      const response = await fetch(`${import.meta.env.API_URL}/user/signup`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/user/signup`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

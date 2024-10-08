@@ -12,7 +12,7 @@ const HomePage = () => {
                 <p className="welcome-message">
                     At AImail, we’re transforming how you consume content! No more scrolling through endless articles — just select the topics and subtopics you're interested in, and let our AI do the rest. We’ll send you custom-crafted newsletters delivered right to your inbox, every day.
                 </p>
-                <a href="/signup" className="cta-button primary-btn">Get Started with AImail</a>
+                <a href="/login" className="cta-button primary-btn">Get Started with AImail</a>
             </section>
 
             <section className="how-it-works-section">

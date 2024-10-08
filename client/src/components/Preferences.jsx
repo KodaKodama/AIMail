@@ -11,7 +11,7 @@ const Preferences = () => {
     useEffect(() => {
         const fetchTopics = async () => {
           try {
-            const response = await axios.get(`${import.meta.env.API_URL}/api/topics`); 
+            const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/topics`); 
             setTopicsData(response.data); 
           } catch (error) {
             console.error('Error fetching topics:', error);
@@ -67,7 +67,7 @@ const Preferences = () => {
     
             console.log(preferences);
     
-            await axios.post(`${import.meta.env.API_URL}/api/preferences`, 
+            await axios.post(`${import.meta.env.VITE_API_URL}/api/preferences`, 
                 { preferences }, 
                 {
                     withCredentials: true,
