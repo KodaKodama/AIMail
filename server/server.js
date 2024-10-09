@@ -13,11 +13,17 @@ const PORT = process.env.PORT || 3000;
 
 db();
 
-// Enable CORS here
-app.use(cors({
-    origin: process.env.NODE_ENV === 'production' 
-            ? 'https://ai-mail-fawn.vercel.app'  
-            : 'http://localhost:5173',  
+origin: (origin, callback) => {
+        const allowedOrigins = [
+            'https://ai-mail-fawn.vercel.app', // your frontend production URL
+            'http://localhost:5173' // your local development URL
+        ];
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true); // Allow request
+        } else {
+            callback(new Error('Not allowed by CORS')); // Deny request
+        }
+    },
     credentials: true,
 }));
 
