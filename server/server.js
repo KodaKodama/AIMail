@@ -12,7 +12,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 db();
-
+app.use(cors({
 origin: (origin, callback) => {
         const allowedOrigins = [
             'https://ai-mail-fawn.vercel.app', // your frontend production URL
