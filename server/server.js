@@ -37,7 +37,7 @@ app.get('/', (req, res) => {
 
 
 app.use('/api', topicRouter);
-app.use('/user', userRouter);
+app.use('/api/user', userRouter);
 
 // const insertTopics = async () => {
 //     try {
