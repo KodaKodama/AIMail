@@ -13,19 +13,12 @@ const PORT = process.env.PORT || 3000;
 
 db();
 app.use(cors({
-origin: (origin, callback) => {
-        const allowedOrigins = [
-            'https://ai-mail-fawn.vercel.app', // your frontend production URL
-            'http://localhost:5173' // your local development URL
-        ];
-        if (!origin || allowedOrigins.includes(origin)) {
-            callback(null, true); // Allow request
-        } else {
-            callback(new Error('Not allowed by CORS')); // Deny request
-        }
-    },
-    credentials: true,
-}));
+    origin: ['https://ai-mail-fawn.vercel.app'], // Your frontend domain
+    credentials: true, // Allow cookies or other credentials to be sent
+  }));
+  
+  // Preflight for all routes (for OPTIONS method)
+app.options('*', cors());
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
