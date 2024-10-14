@@ -12,7 +12,15 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 db();
-app.use(cors());
+app.use(cors({
+    origin: process.env.NODE_ENV === 'production'
+        ? 'https://ai-mail-fawn.vercel.app' // Explicitly allow your frontend origin
+        : 'http://localhost:5173',
+    credentials: true, // Allow credentials (cookies, authorization headers, etc.)
+}));
+
+// Preflight requests handling
+app.options('*', cors()); // Allow preflight requests for all routes
   
 
 app.use(express.json());
