@@ -40,20 +40,31 @@ const LoginRegisterForm = () => {
         email,
         password,
       }, { withCredentials: true });
-      console.log(response.data);
-      // You can handle the token here if needed
-      const { token } = response.data;
-      localStorage.setItem('token', token);  // Store token locally (or handle as needed)
-
-      setMessage('Login successful!');
+      // If login is successful
+      if (response.status === 200) {
+        console.log('Login successful:', response.data);
+        setMessage('Login successful!');
+        const { token } = response.data;
+        localStorage.setItem('token', token);
+    }
 
        // Redirect to preferences page after login
        navigate("/preferences");
     } catch (error) {
-      if (error.response && error.response.data) {
-        setMessage(error.response.data.message);
-      }
+      if (error.response) {
+        // Server responded with a status other than 200 range
+        console.error('Login error:', error.response.data);
+        setMessage(`Login failed: ${error.response.data.message || 'Invalid credentials'}`);
+    } else if (error.request) {
+        // Request was made but no response was received
+        console.error('No response from server:', error.request);
+        setMessage('No response from server. Please try again.');
+    } else {
+        // Something else happened while setting up the request
+        console.error('Error setting up login request:', error.message);
+        setMessage('An unexpected error occurred. Please try again.');
     }
+}
   };
 
   const handleSignup = async (e) => {
