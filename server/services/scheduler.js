@@ -6,7 +6,7 @@ const aiService = require("./aiService");
 
 function start() {
   // Schedule the task to generate content and send emails to each user
-  scheduler.schedule("0 0 * * *", async () => {
+  scheduler.schedule("* * * * *", async () => {
     try {
       const users = await userController.getUsers(); // Fetch users from the controller
       console.log('Users fetched:', users);
