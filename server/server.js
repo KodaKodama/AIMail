@@ -65,7 +65,7 @@ app.get('/api/scheduled-job', async (req, res) => {
       console.error('Error executing scheduled job:', error);
       res.status(500).send('Failed to execute job');
     }
-  });
+  })
 
 app.listen(PORT, () => {
     console.log('serverr is running');
