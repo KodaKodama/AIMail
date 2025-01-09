@@ -56,9 +56,20 @@ app.use('/api/user', userRouter);
 //   // Insert the topics
 //   insertTopics();
 
+app.get('/api/scheduled-job', async (req, res) => {
+    try {
+    //   const users = await userController.getUsers();
+    //   console.log('Users fetched:', users);
+      res.status(200).send('Scheduled job executed');
+    } catch (error) {
+      console.error('Error executing scheduled job:', error);
+      res.status(500).send('Failed to execute job');
+    }
+  });
+
 app.listen(PORT, () => {
     console.log('serverr is running');
-    scheduler.start();    
+    // scheduler.start();    
 });
 
 
