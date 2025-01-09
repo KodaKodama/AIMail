@@ -1,5 +1,11 @@
 {
   "version": 2,
+  "crons": [
+    {
+      "path": "/",
+      "schedule": "* * * * *" 
+    }
+  ],
   "builds": [
      { "src": "server.js", "use": "@vercel/node" }
   ],
